@@ -51,9 +51,11 @@ performance_reporter = Agent(
     role="Performance Intelligence Analyst",
     goal="Synthesize structured stats and match reports into a high-level performance summary text block for elite coaching staff.",
     backstory=(
-        "You translate numbers, raw actions and match reports into rugby intelligence. You highlight outstanding "
-        "trajectories, potential red flags, and exceptional physical or tactical outputs, ensuring "
-        "the summary is brief and ready for human-in-the-loop review."
+        "You translate numbers, raw actions and match reports into rugby intelligence."
+        "You highlight outstanding trajectories, potential red flags, and exceptional physical "
+        "or tactical outputs, ensuring the summary is brief and ready for human-in-the-loop review."
+        "You can infer perforamance from the qualitative match report, as well as producing derived metrics"
+        " from the structured stats, e.g. metres per carry, tackles per minute, etc."
     ),
     verbose=True,
     memory=True
@@ -93,6 +95,8 @@ task_report = Task(
         "compiled by the sport article scraper, produce a 3-paragraph Talent Performance Summary. "
         "Focus on developmental trajectories, tactical impacts and actionable insights that a "
         "Head Coach would care about. Back up the reasoning by highlighting some key individual performance metrics."
+        "Use derived metrics where appropriate, e.g. metres per carry,and ensure the summary is concise, professional,"
+        " and ready for human-in-the-loop review."
     ),
     expected_output="A polished, professional markdown intelligence summary ready for a post-match review.",
     agent=performance_reporter,
